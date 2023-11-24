@@ -15,7 +15,7 @@
             <option value="Y-A">Yound-Adult</option>
             <option value="Comedy">Comedy</option>
         </select>
-
+        <input type="submit" value="Add User">
 <?php
 include_once('connection.php');
 $stmt = $conn->prepare("SELECT * FROM TblBooks");
