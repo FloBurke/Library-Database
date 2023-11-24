@@ -23,4 +23,5 @@ $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
 echo($row["Author"].' '.$row["Title"].' - '.$row["genre"]."<br>");
+}
 ?>
