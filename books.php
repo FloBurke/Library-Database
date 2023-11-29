@@ -15,13 +15,14 @@
             <option value="Y-A">Yound-Adult</option>
             <option value="Comedy">Comedy</option>
         </select>
-        <input type="submit" value="Add User">
+        <input type="submit" value="Add User"><br>
+</form>
 <?php
 include_once('connection.php');
 $stmt = $conn->prepare("SELECT * FROM TblBooks");
 $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
-echo($row["Author"].' '.$row["Title"].' - '.$row["genre"]."<br>");
+echo($row["Author"].' '.$row["Title"].' - '.$row["Genre"]."<br>");
 }
 ?>
