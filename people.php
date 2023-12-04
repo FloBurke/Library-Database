@@ -1,28 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Books</title>
+    
+    <title>Page title</title>
+    
 </head>
+<body>
 
-<form action="addbooks.php" method="post">
-    Author:<input type="text" name="author"><br>
-    Title:<input type="text" name="title"><br>
-    Genre:<select name="genre">
-            <option value="Horror">Horror</option>
-            <option value="Classic">Classic</option>
-            <option value="Non-Fiction">Non-fiction</option>
-            <option value="Kids">Kids</option>
-            <option value="Y-A">Yound-Adult</option>
-            <option value="Comedy">Comedy</option>
-        </select>
-        <input type="submit" value="Add User"><br>
+<form action="addpeople.php" method="post">
+  First name:<input type="text" name="forename"><br>
+  Last name:<input type="text" name="surname"><br>
+  Password:<input type="password" name="passwd"><br>
+  <!--Creates a drop down list-->
+  Gender:<select name="gender">
+		<option value="M">Male</option>
+		<option value="F">Female</option>
+	</select>
+  <input type="submit" value="Add User"><br>
+  <!--Next 3 lines create a radio button which we can use to select the user role-->
+  <!--<input type="radio" name="role" value="Pupil" checked> Pupil<br>
+  <input type="radio" name="role" value="Teacher"> Teacher<br>
+  <input type="radio" name="role" value="Admin"> Admin<br>
+  <input type="submit" value="Add User">-->
 </form>
+
 <?php
 include_once('connection.php');
-$stmt = $conn->prepare("SELECT * FROM TblBooks");
+$stmt = $conn->prepare("SELECT * FROM TblPeople");
 $stmt->execute();
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC))
 {
-echo($row["Author"].' '.$row["Title"].' - '.$row["Genre"]."<br>");
+echo($row["Forename"].' '.$row["Surname"].' - '.$row["Gender"]."<br>");
 }
+
 ?>

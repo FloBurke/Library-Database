@@ -3,11 +3,12 @@ try{
     array_map("htmlspecialchars", $_POST);
     include_once("connection.php");
     
-    $stmt = $conn->prepare("INSERT INTO TblBooks (BookID,Author,Title,Genre)VALUES (null,:author,:title,:genre)");
+    $stmt = $conn->prepare("INSERT INTO TblPeople (PersonID,Gender,Surname,Forename,Password)VALUES (null,:gender,:surname,:forename,:password)");
 
-    $stmt->bindParam(':author', $_POST["author"]);
-    $stmt->bindParam(':title', $_POST["title"]);
-    $stmt->bindParam(':genre', $_POST["genre"]);
+    $stmt->bindParam(':forename', $_POST["forename"]);
+    $stmt->bindParam(':surname', $_POST["surname"]);
+    $stmt->bindParam(':password', $_POST["passwd"]);
+    $stmt->bindParam(':gender', $_POST["gender"]);
     $stmt->execute();
 }
 catch(PDOException $e)
@@ -15,6 +16,6 @@ catch(PDOException $e)
 		echo "error".$e->getMessage();
 	}
 $conn=null;
-header('Location: books.php');
+header('Location: people.php');
 
 ?>
