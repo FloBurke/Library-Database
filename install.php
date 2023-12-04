@@ -14,7 +14,7 @@ CREATE TABLE TblPeople
 (PersonID INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 Gender VARCHAR(20) NOT NULL,
 Surname VARCHAR(200) NOT NULL,
-Forename VARCHAR(200) NOT NULL
+Forename VARCHAR(200) NOT NULL,
 Password VARCHAR(20) NOT NULL);");
 $stmt->execute();
 $stmt->closeCursor();
