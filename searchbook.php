@@ -1,5 +1,11 @@
 <?php
 session_start();
+if (!isset($_SESSION['name']))
+{   
+    $_SESSION['backURL'] = $_SERVER['REQUEST_URI'];
+    header("Location:login.php");
+}
+
 include_once("connection.php");
     
 //print_r($_POST);

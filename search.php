@@ -20,6 +20,13 @@
     
     Author:<select name="author">
     <?php
+        session_start();
+        if (!isset($_SESSION['name']))
+        {   
+            $_SESSION['backURL'] = $_SERVER['REQUEST_URI'];
+            header("Location:login.php");
+        }
+        
         include_once('connection.php');
         $stmt = $conn->prepare("SELECT DISTINCT Author FROM Tblbooks ORDER BY Author ASC");
         $stmt->execute();
