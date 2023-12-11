@@ -15,7 +15,7 @@ CREATE TABLE TblPeople
 Gender VARCHAR(20) NOT NULL,
 Surname VARCHAR(200) NOT NULL,
 Forename VARCHAR(200) NOT NULL,
-Password VARCHAR(20) NOT NULL);");
+Password VARCHAR(200) NOT NULL);");
 $stmt->execute();
 $stmt->closeCursor();
 

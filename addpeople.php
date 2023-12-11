@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION['name']))
+if (!isset($_SESSION['loggedinuserid']))
 {   
     $_SESSION['backURL'] = $_SERVER['REQUEST_URI'];
     header("Location:login.php");
@@ -9,12 +9,13 @@ if (!isset($_SESSION['name']))
 try{
     array_map("htmlspecialchars", $_POST);
     include_once("connection.php");
-    
+    $hashed_password = password_hash($_POST["passwd"], PASSWORD_DEFAULT);
+
     $stmt = $conn->prepare("INSERT INTO TblPeople (PersonID,Gender,Surname,Forename,Password)VALUES (null,:gender,:surname,:forename,:password)");
 
     $stmt->bindParam(':forename', $_POST["forename"]);
     $stmt->bindParam(':surname', $_POST["surname"]);
-    $stmt->bindParam(':password', $_POST["passwd"]);
+    $stmt->bindParam(':password', $hashed_password);
     $stmt->bindParam(':gender', $_POST["gender"]);
     $stmt->execute();
 }
