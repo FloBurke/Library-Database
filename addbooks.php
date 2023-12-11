@@ -1,4 +1,5 @@
 <?php
+session_start();
 try{
     array_map("htmlspecialchars", $_POST);
     include_once("connection.php");

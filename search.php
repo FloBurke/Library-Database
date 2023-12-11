@@ -20,6 +20,7 @@
     
     Author:<select name="author">
     <?php
+    session_start();
         include_once('connection.php');
         $stmt = $conn->prepare("SELECT DISTINCT Author FROM Tblbooks ORDER BY Author ASC");
         $stmt->execute();
