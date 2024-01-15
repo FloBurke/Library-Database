@@ -15,7 +15,7 @@
             <option value="Y-A">Yound-Adult</option>
             <option value="Comedy">Comedy</option>
         </select>
-        <input type="submit" value="Add User"><br>
+        <input type="submit" value="Add Book"><br>
 </form>
 <?php
 include_once('connection.php');
